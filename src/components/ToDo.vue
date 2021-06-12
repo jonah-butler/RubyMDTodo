@@ -25,7 +25,6 @@
           >
             <v-card>
               <v-subheader>{{ card }}</v-subheader>
-
               <v-list v-if="todos.length && !query.length"
               two-line>
                 <ToDo
@@ -63,9 +62,9 @@
 </template>
 
 <script>
-import Search from '@/components/inputs/Search.vue';
-import New from '@/components/NewToDo.vue';
-import ToDo from '@/components/SingleToDo.vue';
+import Search from '@/components/ToDo/Search.vue';
+import New from '@/components/ToDo/NewToDo.vue';
+import ToDo from '@/components/ToDo/SingleToDo.vue';
 
   export default {
     components: {
@@ -77,12 +76,8 @@ import ToDo from '@/components/SingleToDo.vue';
       return {
         cards: ['Todos'],
         query: '',
-        todos: [
-
-        ],
-        filteredToDos: [
-
-        ],
+        todos: [],
+        filteredToDos: [],
       };
     },
     methods: {
@@ -112,7 +107,6 @@ import ToDo from '@/components/SingleToDo.vue';
       filterByName($event) {
         this.query = $event;
         if($event != ''){
-          // const regEx = `/\b${$event}i/`;
           const regEx = new RegExp(`\\b${$event}`, 'i');
           this.filteredToDos = this.todos.filter((todo) => {
             return todo.assignee.match(regEx);

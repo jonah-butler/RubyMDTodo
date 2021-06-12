@@ -35,16 +35,16 @@
             class="pa-3"
             elevation=0>
               <v-text-field
-                ref="assignee"
-                label="Assignee"
-                hide-details="auto"
-                v-model="todo.assignee"
+              ref="assignee"
+              label="Assignee"
+              hide-details="auto"
+              v-model="todo.assignee"
               ></v-text-field>
               <v-text-field
-                ref="title"
-                label="Title"
-                hide-details="auto"
-                v-model="todo.title"
+              ref="title"
+              label="Title"
+              hide-details="auto"
+              v-model="todo.title"
               ></v-text-field>
               <v-textarea
               ref="description"
@@ -101,9 +101,6 @@
         this.todo.title = '';
         this.todo.description = '';
       },
-    },
-    computed: {
-
     },
   };
 </script>
